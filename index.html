@@ -16,12 +16,12 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
 background:#020617;
 color:white;
-overflow-x:hidden;
 }
 
 /* HERO */
@@ -37,14 +37,14 @@ height:180px;
 border-radius:50%;
 object-fit:cover;
 border:5px solid #22d3ee;
-margin-bottom:20px;
 box-shadow:0 0 35px rgba(34,211,238,0.7);
+margin-bottom:20px;
 animation:glow 3s infinite alternate;
 }
 
 @keyframes glow{
-from{box-shadow:0 0 15px #22d3ee;}
-to{box-shadow:0 0 45px #22d3ee;}
+from{box-shadow:0 0 10px #22d3ee;}
+to{box-shadow:0 0 40px #22d3ee;}
 }
 
 .hero h1{
@@ -63,11 +63,13 @@ opacity:0.7;
 margin-bottom:20px;
 }
 
+/* SOCIAL */
+
 .links a{
 text-decoration:none;
 color:white;
 background:linear-gradient(135deg,#22d3ee,#a78bfa);
-padding:10px 18px;
+padding:10px 20px;
 border-radius:25px;
 margin:6px;
 display:inline-block;
@@ -86,8 +88,18 @@ padding:80px 12%;
 
 .section h2{
 font-size:32px;
-margin-bottom:25px;
+margin-bottom:30px;
 color:#22d3ee;
+text-align:center;
+}
+
+/* ABOUT */
+
+.about{
+max-width:800px;
+margin:auto;
+text-align:center;
+line-height:1.6;
 }
 
 /* SKILLS */
@@ -95,6 +107,7 @@ color:#22d3ee;
 .skills{
 display:flex;
 flex-wrap:wrap;
+justify-content:center;
 gap:12px;
 }
 
@@ -103,27 +116,34 @@ background:#0f172a;
 padding:10px 18px;
 border-radius:20px;
 border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
 }
 
-/* PROJECT GRID */
+.skills div:hover{
+background:#22d3ee;
+color:black;
+}
+
+/* PROJECTS */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
 .card{
 background:#0f172a;
-padding:22px;
-border-radius:15px;
-transition:0.3s;
+padding:25px;
+border-radius:16px;
 border:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+cursor:pointer;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 30px rgba(34,211,238,0.6);
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(34,211,238,0.6);
 }
 
 .card h3{
@@ -132,12 +152,6 @@ margin-bottom:10px;
 
 .card p{
 font-size:14px;
-margin-bottom:10px;
-}
-
-.card a{
-color:#22d3ee;
-text-decoration:none;
 }
 
 /* GITHUB */
@@ -151,7 +165,10 @@ margin-top:40px;
 
 .contact{
 text-align:center;
+line-height:2;
 }
+
+/* FOOTER */
 
 footer{
 text-align:center;
@@ -177,8 +194,8 @@ opacity:0.6;
 
 <div class="links">
 
-<a href="https://github.com/iamSonaliGhuge">GitHub</a>
-<a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b">LinkedIn</a>
+<a href="https://github.com/iamSonaliGhuge" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b" target="_blank">LinkedIn</a>
 
 </div>
 
@@ -189,11 +206,15 @@ opacity:0.6;
 
 <h2>About Me</h2>
 
+<div class="about">
+
 <p>
-Aspiring DevOps Engineer with hands-on experience in AWS, Docker, Terraform,
-Jenkins and Linux automation. Passionate about building scalable cloud
-infrastructure and CI/CD pipelines.
+Aspiring DevOps Engineer with hands-on experience in AWS, Docker,
+Terraform, Jenkins and Linux automation. Passionate about building
+scalable cloud infrastructure and CI/CD pipelines.
 </p>
+
+</div>
 
 </section>
 
@@ -212,6 +233,7 @@ infrastructure and CI/CD pipelines.
 <div>Linux</div>
 <div>Python</div>
 <div>Shell Scripting</div>
+<div>Git</div>
 
 </div>
 
@@ -224,40 +246,46 @@ infrastructure and CI/CD pipelines.
 
 <div class="grid">
 
-<div class="card">
-<h3>S3 → RDS Data Ingestion</h3>
-<p>Pipeline transferring data from AWS S3 to RDS with Glue fallback.</p>
-<a href="https://github.com/iamSonaliGhuge/s3-rds-ingestion-with-glue-fallback">View Project</a>
+<div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/s3-rds-ingestion-with-glue-fallback')">
+
+<h3>S3 → RDS Data Pipeline</h3>
+<p>Automated data pipeline transferring data from AWS S3 to RDS using Glue fallback.</p>
+
 </div>
 
-<div class="card">
+<div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/Flask-Student-Registration-Web-Application-deloyed-using-jenkins-')">
+
 <h3>Flask App with Jenkins</h3>
-<p>Student registration application deployed using Jenkins CI/CD.</p>
-<a href="https://github.com/iamSonaliGhuge/Flask-Student-Registration-Web-Application-deloyed-using-jenkins-">View Project</a>
+<p>Student registration application deployed using Jenkins CI/CD automation.</p>
+
 </div>
 
-<div class="card">
+<div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/Automated-Backup-and-Rotation-script-with-Google-Drive-Integration')">
+
 <h3>Backup Automation Script</h3>
-<p>Automated backup and rotation script with Google Drive integration.</p>
-<a href="https://github.com/iamSonaliGhuge/Automated-Backup-and-Rotation-script-with-Google-Drive-Integration">View Project</a>
+<p>Linux automation script for backups with rotation and Google Drive integration.</p>
+
 </div>
 
-<div class="card">
+<div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/Automated--Jenkins-Job-Triggered-by-Access-Log-Size')">
+
 <h3>Jenkins Log Monitoring</h3>
-<p>Automation triggering Jenkins jobs based on access log size.</p>
-<a href="https://github.com/iamSonaliGhuge/Automated--Jenkins-Job-Triggered-by-Access-Log-Size">View Project</a>
+<p>Automation triggering Jenkins jobs based on server access log size.</p>
+
 </div>
 
-<div class="card">
+<div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/AWS-VPC-Flow-Logs-to-S3-using-IAM-role')">
+
 <h3>VPC Flow Logs → S3</h3>
-<p>AWS VPC Flow Logs configured and stored in S3 using IAM role.</p>
-<a href="https://github.com/iamSonaliGhuge/AWS-VPC-Flow-Logs-to-S3-using-IAM-role">View Project</a>
+<p>AWS VPC network traffic logs stored securely in S3 using IAM role.</p>
+
 </div>
 
-<div class="card">
+<div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/AWS-Cloudwatch-Dashboard-for-coprensive-monitoring-git')">
+
 <h3>CloudWatch Dashboard</h3>
-<p>Centralized monitoring dashboard created using Terraform.</p>
-<a href="https://github.com/iamSonaliGhuge/AWS-Cloudwatch-Dashboard-for-coprensive-monitoring-git">View Project</a>
+<p>Infrastructure monitoring dashboard created using Terraform.</p>
+
 </div>
 
 </div>
@@ -281,8 +309,10 @@ infrastructure and CI/CD pipelines.
 <p>Email: sonalighuge98@gmail.com</p>
 
 <p>
-<a href="https://github.com/iamSonaliGhuge">GitHub</a> |
-<a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b">LinkedIn</a>
+
+<a href="https://github.com/iamSonaliGhuge" target="_blank">GitHub</a> |
+<a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b" target="_blank">LinkedIn</a>
+
 </p>
 
 </section>
@@ -293,6 +323,15 @@ infrastructure and CI/CD pipelines.
 © 2026 Sonali Ghuge | DevOps Portfolio
 
 </footer>
+
+
+<script>
+
+function openProject(link){
+window.open(link,"_blank");
+}
+
+</script>
 
 </body>
 </html>
