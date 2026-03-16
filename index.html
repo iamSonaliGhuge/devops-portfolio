@@ -9,6 +9,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 <style>
 
 *{
@@ -22,6 +24,18 @@ scroll-behavior:smooth;
 body{
 background:#020617;
 color:white;
+overflow-x:hidden;
+}
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* HERO */
@@ -37,14 +51,8 @@ height:180px;
 border-radius:50%;
 object-fit:cover;
 border:5px solid #22d3ee;
-box-shadow:0 0 35px rgba(34,211,238,0.7);
+box-shadow:0 0 40px rgba(34,211,238,0.8);
 margin-bottom:20px;
-animation:glow 3s infinite alternate;
-}
-
-@keyframes glow{
-from{box-shadow:0 0 10px #22d3ee;}
-to{box-shadow:0 0 40px #22d3ee;}
 }
 
 .hero h1{
@@ -63,7 +71,7 @@ opacity:0.7;
 margin-bottom:20px;
 }
 
-/* SOCIAL */
+/* BUTTONS */
 
 .links a{
 text-decoration:none;
@@ -96,10 +104,11 @@ text-align:center;
 /* ABOUT */
 
 .about{
-max-width:800px;
+max-width:900px;
 margin:auto;
 text-align:center;
-line-height:1.6;
+line-height:1.8;
+font-size:16px;
 }
 
 /* SKILLS */
@@ -108,12 +117,12 @@ line-height:1.6;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:12px;
+gap:14px;
 }
 
 .skills div{
 background:#0f172a;
-padding:10px 18px;
+padding:10px 20px;
 border-radius:20px;
 border:1px solid rgba(255,255,255,0.1);
 transition:0.3s;
@@ -182,13 +191,15 @@ opacity:0.6;
 
 <body>
 
+<div id="particles"></div>
+
 <section class="hero">
 
 <img src="profile.jpg">
 
-<h1>Sonali Ghuge</h1>
+<h1 id="name"></h1>
 
-<h2>DevOps Engineer | AWS | Terraform | Docker | Jenkins</h2>
+<h2 id="role"></h2>
 
 <p class="location">📍 Pune, India</p>
 
@@ -209,9 +220,28 @@ opacity:0.6;
 <div class="about">
 
 <p>
-Aspiring DevOps Engineer with hands-on experience in AWS, Docker,
-Terraform, Jenkins and Linux automation. Passionate about building
-scalable cloud infrastructure and CI/CD pipelines.
+Hello! I'm <b>Sonali Ghuge</b>, an aspiring <b>DevOps Engineer</b> passionate about 
+cloud infrastructure, automation, and scalable system design. I have hands-on 
+experience working with <b>AWS services, Docker containerization, Terraform 
+Infrastructure as Code, Jenkins CI/CD pipelines, and Linux system automation</b>.
+</p>
+
+<br>
+
+<p>
+Through various practical projects, I have built automated deployment pipelines, 
+implemented infrastructure monitoring systems, and created cloud-based 
+architectures following DevOps best practices. I enjoy solving real-world 
+infrastructure problems and continuously improving deployment reliability 
+through automation.
+</p>
+
+<br>
+
+<p>
+Currently, I am focusing on improving my DevOps and Cloud Engineering skills by 
+building real-world projects involving containerization, infrastructure 
+automation, and cloud monitoring solutions.
 </p>
 
 </div>
@@ -247,45 +277,33 @@ scalable cloud infrastructure and CI/CD pipelines.
 <div class="grid">
 
 <div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/s3-rds-ingestion-with-glue-fallback')">
-
 <h3>S3 → RDS Data Pipeline</h3>
-<p>Automated data pipeline transferring data from AWS S3 to RDS using Glue fallback.</p>
-
+<p>Automated data ingestion pipeline transferring data from AWS S3 to RDS using Glue fallback.</p>
 </div>
 
 <div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/Flask-Student-Registration-Web-Application-deloyed-using-jenkins-')">
-
 <h3>Flask App with Jenkins</h3>
-<p>Student registration application deployed using Jenkins CI/CD automation.</p>
-
+<p>Student registration web application deployed using Jenkins CI/CD pipeline.</p>
 </div>
 
 <div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/Automated-Backup-and-Rotation-script-with-Google-Drive-Integration')">
-
 <h3>Backup Automation Script</h3>
-<p>Linux automation script for backups with rotation and Google Drive integration.</p>
-
+<p>Linux automation script implementing scheduled backups and rotation policies.</p>
 </div>
 
 <div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/Automated--Jenkins-Job-Triggered-by-Access-Log-Size')">
-
 <h3>Jenkins Log Monitoring</h3>
-<p>Automation triggering Jenkins jobs based on server access log size.</p>
-
+<p>Automation system triggering Jenkins jobs based on server access log size.</p>
 </div>
 
 <div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/AWS-VPC-Flow-Logs-to-S3-using-IAM-role')">
-
 <h3>VPC Flow Logs → S3</h3>
-<p>AWS VPC network traffic logs stored securely in S3 using IAM role.</p>
-
+<p>AWS network traffic logging system storing logs securely in S3.</p>
 </div>
 
 <div class="card" onclick="openProject('https://github.com/iamSonaliGhuge/AWS-Cloudwatch-Dashboard-for-coprensive-monitoring-git')">
-
 <h3>CloudWatch Dashboard</h3>
-<p>Infrastructure monitoring dashboard created using Terraform.</p>
-
+<p>Infrastructure monitoring dashboard built using Terraform.</p>
 </div>
 
 </div>
@@ -310,8 +328,8 @@ scalable cloud infrastructure and CI/CD pipelines.
 
 <p>
 
-<a href="https://github.com/iamSonaliGhuge" target="_blank">GitHub</a> |
-<a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b" target="_blank">LinkedIn</a>
+<a href="https://github.com/iamSonaliGhuge">GitHub</a> |
+<a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b">LinkedIn</a>
 
 </p>
 
@@ -327,9 +345,52 @@ scalable cloud infrastructure and CI/CD pipelines.
 
 <script>
 
+/* PARTICLES */
+
+tsParticles.load("particles",{
+particles:{
+number:{value:70},
+color:{value:"#22d3ee"},
+links:{enable:true,distance:150,color:"#22d3ee",opacity:0.4},
+move:{enable:true,speed:1},
+size:{value:2}
+},
+background:{color:"#020617"}
+})
+
+/* PROJECT OPEN */
+
 function openProject(link){
 window.open(link,"_blank");
 }
+
+/* TYPING EFFECT */
+
+const name="Sonali Ghuge"
+const role="DevOps Engineer | AWS | Terraform | Docker | Jenkins"
+
+let i=0
+let j=0
+
+function typeName(){
+if(i<name.length){
+document.getElementById("name").innerHTML+=name.charAt(i)
+i++
+setTimeout(typeName,120)
+}else{
+typeRole()
+}
+}
+
+function typeRole(){
+if(j<role.length){
+document.getElementById("role").innerHTML+=role.charAt(j)
+j++
+setTimeout(typeRole,80)
+}
+}
+
+typeName()
 
 </script>
 
