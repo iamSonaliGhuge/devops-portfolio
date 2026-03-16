@@ -7,103 +7,257 @@
 
 <title>Sonali Ghuge | DevOps Engineer</title>
 
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:120px 20px;
+}
+
+.hero img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #22d3ee;
+margin-bottom:20px;
+box-shadow:0 0 35px rgba(34,211,238,0.7);
+animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 15px #22d3ee;}
+to{box-shadow:0 0 45px #22d3ee;}
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.hero h2{
+color:#22d3ee;
+font-weight:400;
+margin-bottom:10px;
+}
+
+.location{
+opacity:0.7;
+margin-bottom:20px;
+}
+
+.links a{
+text-decoration:none;
+color:white;
+background:linear-gradient(135deg,#22d3ee,#a78bfa);
+padding:10px 18px;
+border-radius:25px;
+margin:6px;
+display:inline-block;
+transition:0.3s;
+}
+
+.links a:hover{
+transform:scale(1.1);
+}
+
+/* SECTION */
+
+.section{
+padding:80px 12%;
+}
+
+.section h2{
+font-size:32px;
+margin-bottom:25px;
+color:#22d3ee;
+}
+
+/* SKILLS */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.skills div{
+background:#0f172a;
+padding:10px 18px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+/* PROJECT GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#0f172a;
+padding:22px;
+border-radius:15px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(34,211,238,0.6);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+font-size:14px;
+margin-bottom:10px;
+}
+
+.card a{
+color:#22d3ee;
+text-decoration:none;
+}
+
+/* GITHUB */
+
+.github{
+text-align:center;
+margin-top:40px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+footer{
+text-align:center;
+padding:40px;
+opacity:0.6;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header class="hero">
+<section class="hero">
 
-<img src="profile.jpg" class="profile">
+<img src="profile.jpg">
 
 <h1>Sonali Ghuge</h1>
 
-<h2>AWS & DevOps Engineer</h2>
+<h2>DevOps Engineer | AWS | Terraform | Docker | Jenkins</h2>
 
 <p class="location">📍 Pune, India</p>
 
-<div class="social">
+<div class="links">
 
 <a href="https://github.com/iamSonaliGhuge">GitHub</a>
 <a href="https://www.linkedin.com/in/sonali-ghuge-b6635131b">LinkedIn</a>
 
 </div>
 
-</header>
+</section>
 
 
-<section class="about">
+<section class="section">
 
 <h2>About Me</h2>
 
 <p>
-Aspiring DevOps Engineer with hands-on experience in AWS, Docker,
-Terraform, Jenkins and Linux automation. Passionate about building
-cloud infrastructure and CI/CD pipelines.
+Aspiring DevOps Engineer with hands-on experience in AWS, Docker, Terraform,
+Jenkins and Linux automation. Passionate about building scalable cloud
+infrastructure and CI/CD pipelines.
 </p>
 
 </section>
 
 
-<section class="skills">
+<section class="section">
 
 <h2>Skills</h2>
 
-<div class="skill-box">
+<div class="skills">
 
 <div>AWS</div>
 <div>Docker</div>
 <div>Terraform</div>
 <div>Jenkins</div>
+<div>Ansible</div>
 <div>Linux</div>
 <div>Python</div>
+<div>Shell Scripting</div>
 
 </div>
 
 </section>
 
 
-<section class="projects">
+<section class="section">
 
 <h2>Projects</h2>
 
-<div class="project-grid">
+<div class="grid">
 
 <div class="card">
-<h3>S3 to RDS Data Pipeline</h3>
-<p>Data ingestion pipeline using AWS S3, RDS and Glue fallback.</p>
-<a href="https://github.com/iamSonaliGhuge">View</a>
+<h3>S3 → RDS Data Ingestion</h3>
+<p>Pipeline transferring data from AWS S3 to RDS with Glue fallback.</p>
+<a href="https://github.com/iamSonaliGhuge/s3-rds-ingestion-with-glue-fallback">View Project</a>
 </div>
 
 <div class="card">
 <h3>Flask App with Jenkins</h3>
 <p>Student registration application deployed using Jenkins CI/CD.</p>
-<a href="https://github.com/iamSonaliGhuge">View</a>
+<a href="https://github.com/iamSonaliGhuge/Flask-Student-Registration-Web-Application-deloyed-using-jenkins-">View Project</a>
 </div>
 
 <div class="card">
 <h3>Backup Automation Script</h3>
 <p>Automated backup and rotation script with Google Drive integration.</p>
-<a href="https://github.com/iamSonaliGhuge">View</a>
+<a href="https://github.com/iamSonaliGhuge/Automated-Backup-and-Rotation-script-with-Google-Drive-Integration">View Project</a>
 </div>
 
 <div class="card">
 <h3>Jenkins Log Monitoring</h3>
-<p>Automation that triggers Jenkins jobs based on access log size.</p>
-<a href="https://github.com/iamSonaliGhuge">View</a>
+<p>Automation triggering Jenkins jobs based on access log size.</p>
+<a href="https://github.com/iamSonaliGhuge/Automated--Jenkins-Job-Triggered-by-Access-Log-Size">View Project</a>
 </div>
 
 <div class="card">
-<h3>VPC Flow Logs to S3</h3>
-<p>Configured AWS VPC Flow Logs and stored logs in S3 using IAM role.</p>
-<a href="https://github.com/iamSonaliGhuge">View</a>
+<h3>VPC Flow Logs → S3</h3>
+<p>AWS VPC Flow Logs configured and stored in S3 using IAM role.</p>
+<a href="https://github.com/iamSonaliGhuge/AWS-VPC-Flow-Logs-to-S3-using-IAM-role">View Project</a>
 </div>
 
 <div class="card">
 <h3>CloudWatch Dashboard</h3>
-<p>Monitoring dashboard provisioned using Terraform.</p>
-<a href="https://github.com/iamSonaliGhuge">View</a>
+<p>Centralized monitoring dashboard created using Terraform.</p>
+<a href="https://github.com/iamSonaliGhuge/AWS-Cloudwatch-Dashboard-for-coprensive-monitoring-git">View Project</a>
 </div>
 
 </div>
@@ -111,7 +265,16 @@ cloud infrastructure and CI/CD pipelines.
 </section>
 
 
-<section class="contact">
+<section class="section github">
+
+<h2>GitHub Activity</h2>
+
+<img src="https://ghchart.rshah.org/22d3ee/iamSonaliGhuge">
+
+</section>
+
+
+<section class="section contact">
 
 <h2>Contact</h2>
 
@@ -124,9 +287,10 @@ cloud infrastructure and CI/CD pipelines.
 
 </section>
 
+
 <footer>
 
-<p>© 2026 Sonali Ghuge | DevOps Portfolio</p>
+© 2026 Sonali Ghuge | DevOps Portfolio
 
 </footer>
 
